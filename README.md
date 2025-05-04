@@ -154,20 +154,25 @@ sequenceDiagram
   - 10GB free disk space
 
 - **Software Prerequisites**
-  - Python 3.8+ with pip
+  - Python 3.11 (recommended) or 3.10
+  - pip (latest version)
   - Ollama runtime environment
   - LLaMA 3.2 model
   - Flask 2.0+
   - Modern web browser with WebRTC support
+  - Working microphone for audio input
 
 ### Detailed Installation
 
 1. **Environment Setup**
 ```bash
-# Create and activate virtual environment
+# Create and activate virtual environment (REQUIRED)
 python -m venv venv
 source venv/bin/activate  # Unix/macOS
 venv\\Scripts\\activate   # Windows
+
+# If using macOS and encounter "externally managed environment" error:
+# Make sure to create and activate the virtual environment before proceeding
 ```
 
 2. **Clone and Configure**
@@ -176,7 +181,16 @@ venv\\Scripts\\activate   # Windows
 git clone [repository-url]
 cd [repository-name]
 
-# Install dependencies
+# Install core dependencies first
+pip install Flask requests python-dotenv
+
+# Install scientific and multimedia packages
+pip install numpy torch opencv-python
+
+# Install audio processing dependencies
+pip install openai-whisper
+
+# Install remaining dependencies
 pip install -r requirements.txt
 
 # Configure environment variables
@@ -184,7 +198,15 @@ cp .env.example .env
 # Edit .env with your settings
 ```
 
-3. **LLaMA Model Setup**
+3. **Troubleshooting Common Issues**
+- If you encounter setuptools errors: `pip install --upgrade setuptools`
+- For numpy installation issues: `pip install numpy --only-binary :all:`
+- If audio recording doesn't work:
+  - Check microphone permissions in browser
+  - Verify openai-whisper installation
+  - Ensure audio device is properly connected
+
+4. **LLaMA Model Setup**
 ```bash
 # Install Ollama
 curl https://ollama.ai/install.sh | sh
