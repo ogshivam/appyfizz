@@ -1,0 +1,25 @@
+# Web Framework and Utils
+Flask==3.0.0
+Werkzeug==3.0.1
+python-dotenv==1.0.0
+requests==2.31.0
+gunicorn==21.2.0
+
+# Speech Recognition and Processing
+openai-whisper==20240930  # For speech recognition
+sounddevice==0.4.6  # For audio processing
+SpeechRecognition==3.10.0  # For speech-to-text
+soundfile==0.12.1  # For audio file handling
+
+# Machine Learning and Numerical Processing
+torch==2.1.0  # Required for Whisper
+numpy==1.24.3  # Required for numerical operations
+scipy==1.10.1  # Required for audio processing
+
+# Basic Image Processing
+Pillow==10.0.0  # For basic image handling
+opencv-python==4.8.0.74  # For avatar animations
+
+# Document Generation
+reportlab==4.0.8  # For PDF generation
+fpdf==1.7.2  # For PDF creation
